@@ -1,0 +1,11 @@
+SetAPIKey                Allows the user to set the OpenSecrets.org API key once thereby removing the need to pass it in for each function call in this package.
+GetCandContribData       Returns top contributors to specified candidate for a House or Senate seat or member of Congress. These are 6 year numbers for Senators/Senate candidates; 2 years for Representatives/House candidates.
+GetCandIndByIndData      Provides total contributed to specified candidate from specified industry. Senate data is 2 year totals.
+GetCandIndustryData      Returns data on a candidate's Industry contributions. Senate totals are 6 years.
+GetCandSectorData        Method to access data for a candidate's top sectors.
+GetCandSummaryData       Method to access summary data for a candidate.
+GetCongCmteIndusData     Provides summary fundraising information for a specific committee, industry and congress number.
+GetLegislatorsData       Provides a list of 113th Congressional legislators and associated attributes for specified subset (state, district or specific CID).
+GetOrgsData              Provides organization data.
+GetMemPFDprofileData     Returns data on a member's PFD profile.
+GetOrgSummaryData        Provides summary fundraising information for the specified organization id.
