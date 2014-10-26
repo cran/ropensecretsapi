@@ -1,14 +1,9 @@
-7a0776a1ab96591b573893b87d4eba43 *DESCRIPTION
+335b896ccb926faa502eadddf80a3076 *DESCRIPTION
 f5405d5f1876a4325efa9b626c0761bf *INDEX
 abc4b03a01365203acaf1dac59416ae3 *NAMESPACE
-22a68c98efa47110215925372bfe6f92 *NEWS
-d3beaf6f9f7edec03e937f85c716baed *R/ropensecretsapi.R
+4507782bed6a107ef25c422c932d7aa8 *NEWS
+70eb1f3c73d3172a6e56e0cb9c1920a8 *R/ropensecretsapi.R
 5eae9862319d0f2cedefbd0bc4e16fb6 *README.md
-68500749ad4f170a2c6c809b95eb7e3b *man/AddAPIKey.Rd
-651b93fa1df383415f4be81a29b77f2f *man/AddKeyValuePair.Rd
-1d931e16d21beb168e400031e054e272 *man/AddMethod.Rd
-bad3968e69dcdd621e2969d2d67e4b88 *man/AddOutputAsJSON.Rd
-fc5e6f9d0ce91b6ee9f0ba3eee974199 *man/DoGet.Rd
 457165f65d242c0dbfc6d3117cc0b0c2 *man/GetCandContribData.Rd
 5a093c2a5d6fd46abc976c6ad4be270a *man/GetCandIndByIndData.Rd
 479784755a8c4507960a382982f69940 *man/GetCandIndustryData.Rd

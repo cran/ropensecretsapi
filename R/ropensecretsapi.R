@@ -26,7 +26,7 @@ SetAPIKey <- function (apiKey) {
 #' @param key The key to add to the params variable.
 #' @param value The value to add to the params variable.
 #'
-AddKeyValuePair <- function (params, key, value) {
+.AddKeyValuePair <- function (params, key, value) {
 
     if (is.null (params)) {
         stop ("The params parameter cannot be null.")
@@ -49,8 +49,8 @@ AddKeyValuePair <- function (params, key, value) {
 #'
 #' @param params Any parameter pertaining to a specific web method invocation.
 #'
-AddOutputAsJSON <- function (params) {
-    params <- AddKeyValuePair (params, "output", "json")
+.AddOutputAsJSON <- function (params) {
+    params <- .AddKeyValuePair (params, "output", "json")
     return (params)
 }
 
@@ -61,8 +61,8 @@ AddOutputAsJSON <- function (params) {
 #' @param method The web method being invoked -- see
 #' \href{https://www.opensecrets.org/resources/create/api_doc.php}{here}.
 #'
-AddMethod <- function (params, method) {
-    params <- AddKeyValuePair (params, "method", method)
+.AddMethod <- function (params, method) {
+    params <- .AddKeyValuePair (params, "method", method)
     return (params)
 }
 
@@ -72,8 +72,8 @@ AddMethod <- function (params, method) {
 #'
 #' @param params Any parameter pertaining to a specific web method invocation.
 #'
-AddAPIKey <- function (params) {
-    params <- AddKeyValuePair (params, "apikey", rOpenSecretsAPI.env$openSecretsAPIKey)
+.AddAPIKey <- function (params) {
+    params <- .AddKeyValuePair (params, "apikey", rOpenSecretsAPI.env$openSecretsAPIKey)
     return (params)
 }
 
@@ -85,13 +85,13 @@ AddAPIKey <- function (params) {
 #'
 #' @param params Any parameter pertaining to a specific web method invocation.
 #'
-DoGet <- function (method, params) {
+.DoGet <- function (method, params) {
 
-    params <- AddAPIKey (params)
+    params <- .AddAPIKey (params)
 
-    params <- AddOutputAsJSON (params)
+    params <- .AddOutputAsJSON (params)
 
-    params <- AddMethod (params, method)
+    params <- .AddMethod (params, method)
 
     data <- getForm("http://www.opensecrets.org/api/", .params=params)
     dataFrame <- RJSONIO::fromJSON(data)
@@ -129,7 +129,7 @@ GetCandContribData <- function (params) {
     #
     # http://www.opensecrets.org/api/?method=candContrib&cid=N00007360&cycle=2012&apikey=__apikey__
     #
-    results <- DoGet ("candContrib", params)
+    results <- .DoGet ("candContrib", params)
     return (results)
 }
 
@@ -164,7 +164,7 @@ GetCandIndByIndData <- function (params) {
     #
     # http://www.opensecrets.org/api/?method=CandIndByInd&cid=N00007360&cycle=2012&ind=K02&apikey=_API_KEY_
     #
-    results <- DoGet ("CandIndByInd", params)
+    results <- .DoGet ("CandIndByInd", params)
     return (results)
 }
 
@@ -198,7 +198,7 @@ GetCandIndustryData <- function (params) {
     #
     # http://www.opensecrets.org/api/?method=candIndustry&cid=N00007360&cycle=2012&apikey=__apikey__
     #
-    results <- DoGet ("candIndustry", params)
+    results <- .DoGet ("candIndustry", params)
     return (results)
 }
 
@@ -231,7 +231,7 @@ GetCandSectorData <- function (params) {
     #
     # http://www.opensecrets.org/api/?method=candSector&cid=N00007360&cycle=2012&apikey=__apikey__
     #
-    results <- DoGet ("candSector", params)
+    results <- .DoGet ("candSector", params)
     return (results)
 }
 
@@ -265,7 +265,7 @@ GetCandSummaryData <- function (params) {
     #
     # http://www.opensecrets.org/api/?method=candSummary&cid=N00007360&cycle=2012&apikey=__apikey__
     #
-    results <- DoGet ("candSummary", params)
+    results <- .DoGet ("candSummary", params)
     return (results)
 }
 
@@ -300,7 +300,7 @@ GetCongCmteIndusData <- function (params) {
     #
     # http://www.opensecrets.org/api/?method=congCmteIndus&congno=112&indus=F10&cmte=HARM&apikey=__apikey__
     #
-    results <- DoGet ("congCmteIndus", params)
+    results <- .DoGet ("congCmteIndus", params)
     return (results)
 }
 
@@ -334,7 +334,7 @@ GetLegislatorsData <- function (params) {
   #
   # http://www.opensecrets.org/api/?method=getLegislators&id=NJ&apikey=__apikey__
   #
-  results <- DoGet ("getLegislators", params)
+  results <- .DoGet ("getLegislators", params)
   return (results)
 }
 
@@ -368,7 +368,7 @@ GetOrgsData <- function (params) {
   #
   # N/A
   #
-  results <- DoGet ("getOrgs", params)
+  results <- .DoGet ("getOrgs", params)
   return (results)
 }
 
@@ -402,7 +402,7 @@ GetMemPFDprofileData <- function (params) {
   #
   # http://www.opensecrets.org/api/?method=memPFDprofile&year=2010&cid=N00007360&output=xml&apikey=__apikey__
   #
-  results <- DoGet ("memPFDprofile", params)
+  results <- .DoGet ("memPFDprofile", params)
   return (results)
 }
 
@@ -436,6 +436,6 @@ GetOrgSummaryData <- function (params) {
   #
   # N/A
   #
-  results <- DoGet ("orgSummary", params)
+  results <- .DoGet ("orgSummary", params)
   return (results)
 }
